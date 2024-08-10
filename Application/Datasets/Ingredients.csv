@@ -1,0 +1,368 @@
+Ingredient,Type
+Kiwifruit,Fruit
+Tamarind,Fruit
+Peach,Fruit
+Passionfruit,Fruit
+Red Currant,Fruit
+Papaya,Fruit
+Fig,Fruit
+Melon,Fruit
+Starfruit,Fruit
+Jackfruit,Fruit
+Plum,Fruit
+Pineapple,Fruit
+Apricot,Fruit
+Mango,Fruit
+Pumpkin,Fruit
+Durian,Fruit
+Dates,Fruit
+Coconut,Fruit
+Banana,Fruit
+Grape,Fruit
+Pomegranate,Fruit
+Pear,Fruit
+Avocado,Fruit
+Litchi,Fruit
+Rambutan,Fruit
+Butternut Squash,Fruit
+Black Currant,Fruit
+Orange,Fruit
+Apple,Fruit
+White Currant,Fruit
+Currant,Fruit
+Bitter Orange,Fruit
+Raisin,Fruit
+Plumcot,Fruit
+Limburger Cheese,Dairy
+Butter,Dairy
+Cheese,Dairy
+Sheep Cheese,Dairy
+Russian Cheese,Dairy
+Roquefort Cheese,Dairy
+Camembert Cheese,Dairy
+Comte Cheese,Dairy
+Munster Cheese,Dairy
+Provolone Cheese,Dairy
+Cottage Cheese,Dairy
+Domiati Cheese,Dairy
+Emmental Cheese,Dairy
+Feta Cheese,Dairy
+Romano Cheese,Dairy
+Mozzarella Cheese,Dairy
+Gruyere Cheese,Dairy
+Goat Cheese,Dairy
+Cheddar Cheese,Dairy
+Parmesan Cheese,Dairy
+Cream Cheese,Dairy
+Milk,Dairy
+Swiss Cheese,Dairy
+Yogurt,Dairy
+Blue Cheese,Dairy
+Buttermilk,Dairy
+Cream,Dairy
+Kefir,Dairy
+Evaporated Milk,Dairy
+Condensed Milk,Dairy
+Ricotta Cheese,Dairy
+Goat Milk,Dairy
+Sheep Milk,Dairy
+Ghee,Dairy
+Peppermint,Spice
+Lemon Balm,Spice
+Safflower,Spice
+Coriander,Spice
+Cornmint,Spice
+Spearmint,Spice
+Thyme,Spice
+Mint,Spice
+Rosemary,Spice
+Basil,Spice
+Chia,Spice
+Tarragon,Spice
+Sage,Spice
+Rhubarb,Spice
+Fennel,Spice
+Liqourice,Spice
+Winter Savory,Spice
+Sorrel,Spice
+Pineappple Sage,Spice
+Capers,Spice
+Mexican Oregano,Spice
+Garlic,Spice
+Dill,Spice
+Curry Leaf,Spice
+Saffron,Spice
+Celery,Spice
+Nutmeg,Spice
+Cardamom,Spice
+Anise,Spice
+Cinnamon,Spice
+Carom Seed,Spice
+Allspice,Spice
+Turmeric,Spice
+Cumin,Spice
+Clove,Spice
+Star Anise,Spice
+Oregano,Spice
+Ginger,Spice
+Pepper,Spice
+White Pepper,Spice
+Mace,Spice
+Caraway,Spice
+Anise Hyssop,Spice
+Jalapeno,Spice
+Spinach,Vegetable
+Yellow Zucchini,Vegetable
+Leek,Vegetable
+Lettuce,Vegetable
+Chard,Vegetable
+Eggplant,Vegetable
+Endive,Vegetable
+Green zucchini,Vegetable
+Okra,Vegetable
+Shallot,Vegetable
+Redskin Onion,Vegetable
+Corn Salad,Vegetable
+Onion,Vegetable
+Chive,Vegetable
+Welsh Onion,Vegetable
+Heart Of Palm,Vegetable
+Drumstick Leaf,Vegetable
+Barley,Cereal
+Rice,Cereal
+Rye,Cereal
+Wheat,Cereal
+Oats,Cereal
+Wild Rice,Cereal
+Spelt,Cereal
+Hard Wheat,Cereal
+Sorghum,Cereal
+Quinoa,Cereal
+Red Rice,Cereal
+Malt,Cereal
+Semolina,Cereal
+Bulgur,Cereal
+Basmati Rice,Cereal
+Almond,Nuts and Seeds
+Brazil Nut,Nuts and Seeds
+Peanut,Nuts and Seeds
+Pecans,Nuts and Seeds
+Walnut,Nuts and Seeds
+Hazelnut,Nuts and Seeds
+Macadamia Nut,Nuts and Seeds
+Cashew nut,Nuts and Seeds
+Acorn,Nuts and Seeds
+Ginkgo Nuts,Nuts and Seeds
+Pili Nut,Nuts and Seeds
+Mixed Nuts,Nuts and Seeds
+Pistachio,Nuts and Seeds
+Chestnut,Nuts and Seeds
+Filbert,Nuts and Seeds
+Nuts,Nuts and Seeds
+Rum,Beverage
+Wine,Beverage
+Sherry,Beverage
+Champagne,Beverage
+Rose Wine,Beverage
+Sake,Beverage
+Whisky,Beverage
+Red Wine,Beverage
+Beer,Beverage
+White Wine,Beverage
+Gin,Beverage
+Brandy,Beverage
+Spirit,Beverage
+Vodka,Beverage
+Vermouth,Beverage
+Cider,Beverage
+Chicken,Animal Product
+Pork,Animal Product
+Beef,Animal Product
+Turkey,Animal Product
+Rabbit,Animal Product
+Deer,Animal Product
+Greylag Goose,Animal Product
+Bison,Animal Product
+Buffalo,Animal Product
+Mallard Duck,Animal Product
+European Rabbit,Animal Product
+Wild Boar,Animal Product
+Quail,Animal Product
+Mule Deer,Animal Product
+Lamb,Animal Product
+Ham,Animal Product
+Canola Oil,Animal Product
+Lotus,Additives and Essences
+Lemon Grass,Additives and Essences
+Chamomile,Additives and Essences
+Lovage,Additives and Essences
+Mandarin Orange Peel Oil,Additives and Essences
+Clary Sage,Additives and Essences
+Citronella,Additives and Essences
+Citrus Peel Oil,Additives and Essences
+Lemon Peel Oil,Additives and Essences
+Orange Oil,Additives and Essences
+Eucalyptus,Additives and Essences
+Mentha Oil,Additives and Essences
+Red Sage,Additives and Essences
+Grapefruit Peel Oil,Additives and Essences
+Lime Peel Oil,Additives and Essences
+Valerian,Additives and Essences
+Atlantic Herring,Additives and Essences
+Codfish,Animal Product
+Greenland Halibut,Animal Product
+Haddock,Animal Product
+Pacific Rockfish,Animal Product
+Rainbow Trout,Animal Product
+Tuna,Animal Product
+Catfish,Animal Product
+Pollock,Animal Product
+Anchovy,Animal Product
+Salmon,Animal Product
+Sardine,Animal Product
+Atlantic Mackerel,Animal Product
+Striped Bass,Animal Product
+Snapper,Animal Product
+Cranberry,Animal Product
+Raspberry,Fruit
+Blackberry,Fruit
+Red Raspberry,Fruit
+Strawberry,Fruit
+Blueberry,Fruit
+Cherry,Fruit
+Squashberry,Fruit
+Groundcherry,Fruit
+Mulberry,Fruit
+Black Raspberry,Fruit
+Cherry Tomato,Fruit
+Wild Cherry,Fruit
+Mustard,Fruit
+Broccoli,Vegetable
+Brussels Sprout,Vegetable
+Cauliflower,Vegetable
+Wasabi,Vegetable
+Swamp Cabbage,Vegetable
+Rapini,Vegetable
+Prairie Turnip,Vegetable
+Pak Choy,Vegetable
+Kale,Vegetable
+Horseradish,Vegetable
+Kelp,Vegetable
+Oyster,Animal Product
+Crab,Animal Product
+Scallop,Animal Product
+Purple Laver,Animal Product
+Shrimp,Animal Product
+Crayfish,Animal Product
+Red Algae,Animal Product
+Kombu,Animal Product
+Squid,Animal Product
+Lobster,Animal Product
+Clam,Animal Product
+Prawn,Animal Product
+Olive,Animal Product
+Watercress,Vegetable
+Pine,Spice
+Chicory,Nuts and Seeds
+Longan,Vegetable
+Bamboo Shoots,Fruit
+Cardoon,Vegetable
+French Plantain,Vegetable
+Agave,Fruit
+Myrtle,Additives and Essences
+Ceriman,Spice
+Spirulina,Fruit
+Miso,Additives and Essences
+Sugar,Additives and Essences
+Salt,Additives and Essences
+Syrup,Additives and Essences
+Mushroom,Additives and Essences
+Abalone,Vegetable
+Shiitake,Vegetable
+Enokitake,Vegetable
+Oyster Mushroom,Vegetable
+Cloud Ear Vegetable,Vegetable
+Maitake,Vegetable
+Chanterelle,Vegetable
+Morchella,Vegetable
+Truffle,Vegetable
+Vinegar,Vegetable
+Honey,Additives and Essences
+Soya sauce,Additives and Essences
+Chocolate,Additives and Essences
+Cocoa Butter,Additives and Essences
+Soy Yogurt,Additives and Essences
+Peanut Oil,Additives and Essences
+Peanut Butter,Additives and Essences
+Apple Cider Vinegar,Additives and Essences
+Mustard Oil,Additives and Essences
+Mandarin Orange,Additives and Essences
+Grapefruit,Fruit
+Lime,Fruit
+Kumquat,Fruit
+Pummelo,Fruit
+Lemon,Fruit
+Tangerine,Fruit
+Bergamot,Fruit
+Satsuma Orange,Fruit
+Carrot,Fruit
+Beetroot,Vegetable
+Parsnip,Vegetable
+Radish,Vegetable
+Turnip,Vegetable
+Sweet Potato,Vegetable
+Ginseng,Vegetable
+Peas,Vegetable
+Millet,Vegetable
+Catjang Pea,Vegetable
+Chickpea,Vegetable
+Lentils,Vegetable
+Biscuit,Vegetable
+Corn Oil,Cereal
+Popcorn,Cereal
+Corn Grits,Cereal
+Cornbread,Cereal
+Sweetcorn,Cereal
+Coffee,Cereal
+Mate,Beverage
+Arabica Coffee,Beverage
+Roibos Tea,Beverage
+Greenthread Tea,Beverage
+Hot Chocolate,Beverage
+Soy Milk,Beverage
+Hibiscus Tea,Beverage
+Tomato,Beverage
+Capsicum,Vegetable
+Turkey Berry,Vegetable
+Cherry Pepper,Vegetable
+Artichoke,Vegetable
+Lavendar,Vegetable
+Rose,Spice
+Jasmine,Spice
+Potato,Spice
+Jerusalem Artichoke,Vegetable
+Taro,Vegetable
+Sesame,Vegetable
+Cocoa,Nuts and Seeds
+Cucumber,Nuts and Seeds
+Cucurbita,Vegetable
+Asparagus,Vegetable
+Vanilla,Vegetable
+Egg,Additives and Essences
+Beans,Animal Product
+Parsley,Vegetable
+Chili,Spice
+Couscous,Vegetable
+Swordfish,Cereal
+Cognac,Animal Product
+Bay,Beverage
+Tomatillo,Spice
+Paprika,Fruit
+Sweet Pepper,Spice
+Scallion,Vegetable
+Arugula,Vegetable
+Bok choy,Spice
+Liquor,Vegetable
+Bacon,Beverage
+Noodles,Animal Product
+Curry,Fruit

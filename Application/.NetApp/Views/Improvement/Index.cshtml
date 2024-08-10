@@ -1,0 +1,189 @@
+﻿@model Backend.ViewModels.RecipeImprovementsVM
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Improvements Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Top Improvements for @Model.RecipeName</h2>
+
+    <div class="section">
+        <h3>Overall Best Improvements</h3>
+        <canvas id="overallBestChart"></canvas>
+        <script>
+            var ctxOverall = document.getElementById('overallBestChart').getContext('2d');
+            var overallBestChart = new Chart(ctxOverall, {
+                type: 'bar',
+                data: {
+                    labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.OverallBestImprovements.Select(i => i.Ingredient))),
+                    datasets: [{
+                        label: 'Score',
+                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.OverallBestImprovements.Select(i => i.DegreeOfImprovement))),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(75, 192, 192, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            title: {
+                                display: true,
+                                text: 'Degree Of Improvement',
+                                font: {
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+
+    <div class="section">
+        <h3>Top Improvements by Type</h3>
+        @foreach (var stat in Model.TopImprovementsByType)
+        {
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>@stat.Type</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="chart-@stat.Type"></canvas>
+                </div>
+            </div>
+
+            <script>
+                var ctx = document.getElementById('chart-@stat.Type').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(stat.TopImprovements.Select(i => i.Ingredient))),
+                        datasets: [{
+                            label: 'Score',
+                            data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(stat.TopImprovements.Select(i => i.DegreeOfImprovement))),
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(75, 192, 192, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 1,
+                                title: {
+                                    display: true,
+                                    text: 'Degree Of Improvement',
+                                    font: {
+                                        size: 16,
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        }
+    </div>
+
+    <a href="@Url.Action("Index", "Recipe")" class="btn-grid">Back to Recipes</a>
+</body>
+</html>
+
+<style>
+    .btn-grid {
+        background-color: #1ABC9C;
+        color: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        padding: .84rem 2.14rem;
+        font-size: .81rem;
+        margin: 0;
+        border: 0;
+        border-radius: .500rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        white-space: normal;
+        color: #fff;
+    }
+
+        .btn-grid:hover {
+            background: orange;
+        }
+
+    a.btn-grid {
+        text-decoration: none;
+        color: #fff;
+    }
+</style>

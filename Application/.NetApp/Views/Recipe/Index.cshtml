@@ -1,0 +1,298 @@
+﻿@model IEnumerable<Backend.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-custom">
+    <partial name="_pager" model="@(pager)" />
+    <section class="details-grid">
+        <div class="container">
+            <form asp-controller="Recipe" asp-action="Index" method="get">
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <input name="term" class="form-control" placeholder="Search by name" autofocus />
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn-grid">Search</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row mt-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="grid-content d-flex flex-column" id="@item.RecipeId">
+                            <div>
+                                <div class="grid-desc">
+                                    <h3>@item.Name</h3>
+                                    <p><strong>Cuisine</strong>: @item.Cuisine</p>
+                                    <p><strong>Course</strong>: @item.Course</p>
+                                </div>
+                                @{
+                                    bool isLiked = ViewBag.LikedRecipes != null && ViewBag.LikedRecipes.ContainsKey(item.RecipeId) && ViewBag.LikedRecipes[item.RecipeId];
+                                    string heartClass = isLiked ? "bi-heart-fill" : "bi-heart";
+                                }
+                                <a href="javascript:likeAndDislikeRecipe(@item.RecipeId)" class="btn-heart @(isLiked ? "liked" : "")">
+                                    <i class="bi @(heartClass)" id="heartIcon"></i>
+                                </a>
+                            </div>
+                            <div class="mt-auto">
+                                <div class="grid-desc">
+                                    <p><strong>Ingredients</strong>: @item.Ingredients.Replace(",", ", ")</p>
+                                </div>
+                                <div class="read-timer d-flex justify-content-center align-items-center my-2">
+                                    <p class="timer">
+                                        <i class="bi bi-clock"></i> @FormatTime(item.TotalTimeInSeconds)
+                                    </p>
+                                </div>
+                                <hr class="separator" />
+                                <div class="read-timer d-flex justify-content-between align-items-center">
+                                    <a href="@item.Link" class="btn-grid">Details</a>
+                                    <a href="@Url.Action("Index", "Improvement", new { id = item.RecipeId })" class="btn-grid">Improvements</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    @functions {
+        private string FormatTime(int totalSeconds)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(totalSeconds);
+            if (time.Hours > 0)
+            {
+                return $"{time.Hours}h {time.Minutes}m";
+            }
+            return $"{time.Minutes}m";
+        }
+    }
+
+    <partial name="_pager" model="@(pager)" />
+</body>
+
+<script>
+    function likeAndDislikeRecipe(recipeId) {
+        var card = document.getElementById(recipeId);
+        var heartIcon = card.querySelector('i');
+        if (heartIcon.classList.contains('bi-heart-fill')) {
+            $.ajax({
+                url: '/UserLike/removeRecipeFromUserProfile',
+                type: 'GET',
+                data: { recipeId: recipeId },
+                success: function (response) {
+                    console.log('Data received:', response);
+                    toggleHeartIconOnClick(recipeId);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+            console.log("Removing like for recipe ID:", recipeId);
+        } else {
+            $.ajax({
+                url: '/UserLike/addRecipeToUserProfile',
+                type: 'GET',
+                data: { recipeId: recipeId },
+                success: function (response) {
+                    console.log('Data received:', response);
+                    toggleHeartIconOnClick(recipeId);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+            console.log("Adding like for recipe ID:", recipeId);
+        }
+    }
+
+    function toggleHeartIconMouseOver(element) {
+        var heartIcon = element.querySelector('i.bi-heart');
+        if (heartIcon) {
+            heartIcon.classList.remove('bi-heart');
+            heartIcon.classList.add('bi-heart-fill');
+        }
+
+        element.onmouseout = function () {
+            heartIcon.classList.remove('bi-heart-fill');
+            heartIcon.classList.add('bi-heart');
+        };
+    }
+
+    function toggleHeartIconOnClick(recipeId) {
+        var card = document.getElementById(recipeId);
+        var heartIcon = card.querySelector('i');
+        console.log(card);
+        console.log(heartIcon);
+        if (heartIcon) {
+            if (heartIcon.classList.contains('bi-heart-fill')) {
+                heartIcon.classList.remove('bi-heart-fill');
+                heartIcon.classList.add('bi-heart');
+            } else {
+                heartIcon.classList.remove('bi-heart');
+                heartIcon.classList.add('bi-heart-fill');
+            }
+        }
+    }
+</script>
+
+<style>
+    .bg-custom {
+        background-color: #ecf0f1;
+    }
+
+    section {
+        padding: 100px 0;
+    }
+
+    .details-grid {
+        background: #ecf0f1;
+    }
+
+    .grid-content {
+        background: #ffffff;
+        border: 1px solid #ddd;
+        padding: 15px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+    }
+
+    .grid-desc {
+        width: 100%;
+    }
+
+        .grid-desc h3 {
+            color: #000000;
+            font-weight: 600;
+            font-size: 1.5em;
+            line-height: 1.3em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+
+        .grid-desc p {
+            color: #333333; /* Darker shade of black for better readability */
+            font-size: 14px;
+            font-weight: 400;
+            font-size: 1em;
+            line-height: 1.5;
+            margin: 0px;
+            margin-bottom: 20px;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+        }
+
+    .btn-grid {
+        background-color: #1ABC9C;
+        color: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        padding: .84rem 2.14rem;
+        font-size: .81rem;
+        margin: 0;
+        border: 0;
+        border-radius: .500rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        white-space: normal;
+        color: #fff;
+    }
+
+        .btn-grid:hover {
+            background: orange;
+        }
+
+    a.btn-grid {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .read-timer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .timer {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        font-size: 0.9rem;
+        color: #747373;
+    }
+
+        .timer i {
+            margin-right: 5px; /* Add space between the clock icon and the time */
+        }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-bottom: -30px;
+    }
+
+        .row > .col-md-6 {
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-bottom: 30px;
+        }
+
+    .btn-heart {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 20px;
+        color: black;
+        text-decoration: none;
+        z-index: 1;
+    }
+
+        .btn-heart:hover .bi-heart-fill {
+            color: red;
+        }
+
+    .separator {
+        border-top: 2px solid #ddd;
+        width: 100%;
+    }
+
+    .grid-ingredients {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .grid-content .mt-auto {
+        margin-top: auto;
+    }
+
+    .read-timer a {
+        margin-right: 10px; /* Add spacing between buttons */
+    }
+</style>
