@@ -1,4 +1,4 @@
- Bachelor Thesis
+# Bachelor Thesis
 
 Welcome to the repository for my Bachelor Thesis, submitted to the Faculty of Computer Science at Babeș-Bolyai University (UBB).
 
